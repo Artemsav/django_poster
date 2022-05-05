@@ -5,6 +5,8 @@ __pycache__/
 speech-recognition-9529-4cfc6fe1cb67.json
 questions.json
 google-credentials.json
+static/
+places/
 # C extensions
 *.so
 
