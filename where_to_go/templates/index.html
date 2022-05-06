@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <title>Куда пойти — Москва глазами Артёма</title>
 
-  <link rel="shortcut icon" href="favicon.png" type="image/png">
+  <link rel="shortcut icon" href="{% static '/img/favicon.png' %}" type="image/png">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
-  <link rel="stylesheet" href="leaflet-sidebar.css"/>
+  <link rel="stylesheet" href="{% static '/leaflet-sidebar.css' %}"/>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/@ansur/leaflet-pulse-icon@0.1.1/dist/L.Icon.Pulse.css">
@@ -38,6 +38,7 @@
       width: 100px;
     }
   </style>
+  
   <script id="places-geojson" type="application/json">
     {
       "type": "FeatureCollection",
@@ -51,7 +52,7 @@
           "properties": {
             "title": "«Легенды Москвы",
             "placeId": "moscow_legends",
-            "detailsUrl": "./places/moscow_legends.json"
+            "detailsUrl": "https://raw.githubusercontent.com/devmanorg/where-to-go-frontend/master/places/moscow_legends.json"
           }
         },
         {
@@ -63,17 +64,17 @@
           "properties": {
             "title": "Крыши24.рф",
             "placeId": "roofs24",
-            "detailsUrl": "./places/roofs24.json"
+            "detailsUrl": "https://raw.githubusercontent.com/devmanorg/where-to-go-frontend/master/places/roofs24.json"
           }
         }
       ]
     }
   </script>
-
+  
   <script id="app-template" type="text/template">
     <div v-bind:class="{'sidebar-content': 1, 'bg-white': selectedPlace, 'bg-secondary': !selectedPlace}">
       <div v-if="promptVisible" class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
-        <img class="d-block select-place-prompt mb-4" src="hand-pointer-regular.svg" alt="Select place">
+        <img class="d-block select-place-prompt mb-4" src="{% static '/hand-pointer-regular.svg' %}" alt="Select place">
         <h4>Выберите место на карте</h4>
       </div>
 
@@ -140,8 +141,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js" integrity="sha256-ngFW3UnAN0Tnm76mDuu7uUtYEcG3G5H1+zioJw3t+68=" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@ansur/leaflet-pulse-icon@0.1.1/dist/L.Icon.Pulse.js"></script>
 
-  <script src="leaflet-sidebar.js"></script>
-
+  <script src="{% static '/leaflet-sidebar.js' %}"></script>
+  {% verbatim %}
   <script>
     var map = L.map('map');
     map.setView([55.753989, 37.623191], 11);
@@ -310,5 +311,6 @@
       }
     }
   </script>
+  {% endverbatim %}
 </body>
 </html>
