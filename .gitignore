@@ -7,6 +7,7 @@ questions.json
 google-credentials.json
 static/
 places/
+media/
 # C extensions
 *.so
 
