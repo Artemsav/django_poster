@@ -10,3 +10,11 @@ class Location(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class LocationImage(models.Model):
+    title = models.CharField("Название", max_length=200)
+    image = models.ImageField("Изображение")
+
+    def __str__(self) -> str:
+        return f"{self.pk} {self.title}"
