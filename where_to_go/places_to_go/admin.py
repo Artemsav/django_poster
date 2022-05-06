@@ -1,3 +1,4 @@
 from django.contrib import admin
+from places_to_go.models import Location
 
-# Register your models here.
+admin.site.register(Location)
