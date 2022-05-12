@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from places_to_go.models import Location, LocationImage
+from django.urls import reverse
+from where_to_go import places_view
 
 
 def serialize_location(location):
@@ -12,7 +14,7 @@ def serialize_location(location):
         "properties": {
             "title": location.title,
             "placeId": location.pk,
-            "detailsUrl": "https://raw.githubusercontent.com/devmanorg/where-to-go-frontend/master/places/moscow_legends.json"
+            "detailsUrl": reverse(places_view.places, args=[f'{location.id}'])
           }
         }
 
