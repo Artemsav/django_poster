@@ -15,6 +15,12 @@ class Location(models.Model):
 class LocationImage(models.Model):
     title = models.CharField("Название", max_length=200)
     image = models.ImageField("Изображение")
+    location = models.ForeignKey(
+        'Location',
+        on_delete=models.CASCADE,
+        verbose_name='Локация',
+        related_name='loc_img'
+        )
 
     def __str__(self) -> str:
         return f"{self.pk} {self.title}"
