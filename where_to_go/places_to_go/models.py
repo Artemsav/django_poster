@@ -21,7 +21,15 @@ class LocationImage(models.Model):
         verbose_name='Локация',
         related_name='loc_img'
         )
-    position = models.SmallIntegerField("Позиция")
+    position = models.PositiveIntegerField(
+        "Позиция",
+        default=0,
+        blank=False,
+        null=False
+        )
+
+    class Meta:
+        ordering = ['position',]
 
     def __str__(self) -> str:
         return f"{self.position} {self.title}"
