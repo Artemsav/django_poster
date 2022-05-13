@@ -21,6 +21,7 @@ class LocationImage(models.Model):
         verbose_name='Локация',
         related_name='loc_img'
         )
+    position = models.SmallIntegerField("Позиция")
 
     def __str__(self) -> str:
-        return f"{self.pk} {self.title}"
+        return f"{self.position} {self.title}"
