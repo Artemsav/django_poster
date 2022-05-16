@@ -29,7 +29,7 @@ class LocationImage(models.Model):
         )
 
     class Meta:
-        ordering = ['position',]
+        ordering = ['position', ]
 
     def __str__(self) -> str:
         return f"{self.position} {self.title}"

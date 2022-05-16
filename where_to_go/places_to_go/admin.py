@@ -2,13 +2,12 @@ from django.contrib import admin
 from places_to_go.models import Location, LocationImage
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
-from adminsortable2.admin import SortableAdminMixin
+from adminsortable2.admin import SortableAdminMixin, SortableInlineAdminMixin
 
 
-class LocationImageInline(SortableAdminMixin, admin.TabularInline):
+class LocationImageInline(SortableInlineAdminMixin, admin.TabularInline):
     model = LocationImage
     readonly_fields = ['preview_image', ]
-    extra: int = 2
 
     def preview_image(self, obj):
         return format_html(
@@ -18,7 +17,7 @@ class LocationImageInline(SortableAdminMixin, admin.TabularInline):
 
 
 @admin.register(Location)
-class LocationAdmin(SortableAdminMixin, admin.ModelAdmin):
+class LocationAdmin(admin.ModelAdmin):
     inlines = [
         LocationImageInline,
     ]
