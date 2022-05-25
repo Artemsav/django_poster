@@ -3,7 +3,7 @@ from tinymce.models import HTMLField
 
 
 class Location(models.Model):
-    title = models.CharField("Название", max_length=200)
+    title = models.CharField("Название", max_length=200, unique=True)
     short_describtion = models.CharField("Краткое описание", max_length=300)
     long_describtion = HTMLField()
     lat = models.FloatField("Широта")
@@ -14,7 +14,7 @@ class Location(models.Model):
 
 
 class LocationImage(models.Model):
-    title = models.CharField("Название", max_length=200)
+    title = models.CharField("Название", max_length=200, unique=True)
     image = models.ImageField("Изображение")
     location = models.ForeignKey(
         'Location',
