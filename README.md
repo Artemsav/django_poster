@@ -4,7 +4,9 @@
 
 The project of an interactive map of Moscow, which will mark the places of active recreation with detailed descriptions and comments.
 
-![Пример проекта](image/ezgif.com-gif-maker_4nWhtfQ.gif)
+![Example of project](image/ezgif.com-gif-maker_4nWhtfQ.gif)
+
+You can find the project on [pythonanywhere.com](http://hisp.pythonanywhere.com)
 
 ## Instalation
 
