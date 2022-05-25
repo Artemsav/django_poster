@@ -29,4 +29,4 @@ class Command(BaseCommand):
                 location=location
             )
             image_obj.image.save(img_name, img, save=True)
-        self.stdout.write(self.style.SUCCESS(f'Location is {created}'))
+        self.stdout.write(self.style.SUCCESS(f'Location creation is {created}'))
