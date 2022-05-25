@@ -2,7 +2,7 @@ from django.contrib import admin
 from places_to_go.models import Location, LocationImage
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
-from adminsortable2.admin import SortableAdminMixin, SortableInlineAdminMixin
+from adminsortable2.admin import SortableInlineAdminMixin
 
 
 class LocationImageInline(SortableInlineAdminMixin, admin.TabularInline):
