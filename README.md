@@ -8,8 +8,6 @@ The project of an interactive map of Moscow, which will mark the places of activ
 
 You can find the project on [pythonanywhere.com](http://hisp.pythonanywhere.com)
 
-Data on location and images [there](https://github.com/devmanorg/where-to-go-places)
-
 To handle location data you need to use the following ```json``` formating file:
 
 ```json
