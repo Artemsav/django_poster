@@ -8,6 +8,7 @@ google-credentials.json
 static/
 places/
 media/
+staticfiles/
 # C extensions
 *.so
 
