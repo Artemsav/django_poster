@@ -25,7 +25,7 @@ urlpatterns = [
     path('', view.index),
     path('places/<int:post_id>/', places_view.places),
     path('tinymce/', include('tinymce.urls'))
-] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 if settings.DEBUG:
