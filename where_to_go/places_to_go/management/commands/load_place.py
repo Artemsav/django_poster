@@ -12,14 +12,18 @@ class Command(BaseCommand):
         parser.add_argument('place_url')
 
     def handle(self, *args, **options):
-        decoded_respond = requests.get(options['place_url']).json()
+        response = requests.get(options['place_url'])
+        response.raise_for_status()
+        decoded_respond = response.json()
         location, created = Location.objects.get_or_create(
             title=decoded_respond['title'],
-            short_describtion=decoded_respond['description_short'],
-            long_describtion=decoded_respond['description_long'],
-            lat=decoded_respond['coordinates']['lat'],
-            lon=decoded_respond['coordinates']['lng'],
-        )
+            defaults={
+                'short_describtion':decoded_respond['description_short'],
+                'long_describtion':decoded_respond['description_long'],
+                'lat':decoded_respond['coordinates']['lat'],
+                'lon':decoded_respond['coordinates']['lng']
+                }
+            )
         for img_url in decoded_respond['imgs']:
             img_request = requests.get(img_url)
             img = ContentFile(img_request.content)
