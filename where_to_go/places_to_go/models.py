@@ -20,7 +20,7 @@ class LocationImage(models.Model):
         'Location',
         on_delete=models.CASCADE,
         verbose_name='Локация',
-        related_name='loc_img'
+        related_name='images'
         )
     position = models.PositiveIntegerField(
         "Позиция",

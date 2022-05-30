@@ -11,7 +11,7 @@ class UTF8JsonResponse(JsonResponse):
 
 def places(request, post_id):
     location = get_object_or_404(Location, pk=post_id)
-    location_img = location.loc_img.all()
+    location_img = location.images.all()
     location_info = {
       'title': location.title,
       'imgs': [
